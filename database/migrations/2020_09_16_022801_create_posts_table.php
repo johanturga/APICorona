@@ -16,8 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('Id_local');
-            $table->Integer('Entrada_Salida');
+            $table->biginteger('cc');
+            $table->biginteger('telefono');
+            $table->string('direccion');
+            $table->Integer('temperatura');
+            $table->string('fecha');
+            $table->string('hora');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

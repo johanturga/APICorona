@@ -37,13 +37,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Id_local' => 'required',
-            'Entrada_Salida' => 'required'
+        'cc'=> 'required',
+        'telefono'=> 'required',
+        'direccion'=> 'required',
+        'temperatura'=> 'required',
+        'fecha'=> 'required',
+        'hora'=> 'required'
         ]);
 
         $post = new Post();
-        $post->Id_local = $request->Id_local;
-        $post->Entrada_Salida = $request->Entrada_Salida;
+        $post->cc= $request->cc;
+        $post->telefono= $request->telefono;
+        $post->direccion= $request->direccion;
+        $post->temperatura= $request->temperatura;
+        $post->fecha= $request->fecha;
+        $post->hora= $request->hora;
 
         if (auth()->user()->posts()->save($post))
             return response()->json([
